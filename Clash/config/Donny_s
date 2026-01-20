@@ -1,0 +1,56 @@
+[custom]
+custom_proxy=🚫占位死节点`ss`0.0.0.1`1`chacha20-ietf-poly1305`password`udp=false
+
+# 规则集
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
+ruleset=🛑 广告拦截,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
+ruleset=🍃 应用净化,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
+ruleset=📢 谷歌FCM,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list
+ruleset=🤖 Ai平台,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
+ruleset=🤖 Ai平台,https://raw.githubusercontent.com/juewuy/ShellClash/master/rules/ai.list
+ruleset=🚀 节点选择,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
+ruleset=🚀 节点选择,https://raw.githubusercontent.com/UlinoyaPed/ShellClash/dev/lists/proxy.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/UlinoyaPed/ShellClash/dev/lists/direct.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaIp.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
+ruleset=🎯 全球直连,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
+ruleset=🎯 全球直连,[]GEOIP,LAN
+ruleset=🎯 全球直连,[]GEOIP,CN
+ruleset=🍃 应用净化,https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/adobe.list
+ruleset=🐟 自由翱翔,[]FINAL
+
+# 核心策略组
+custom_proxy_group=🚀 节点选择`select`[]🔯 故障转移`[]♻️ 自动选择`[]📶 优选节点`[]🇭🇰 香港节点`[]🇹🇼 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🇩🇪 德国节点`[]☑️ 手动切换`[]DIRECT
+custom_proxy_group=♻️ 自动选择`url-test`.*`http://www.gstatic.com/generate_204`600,,150
+custom_proxy_group=🔯 故障转移`fallback`[]🇭🇰 香港节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🇺🇲 美国节点`[]🇩🇪 德国节点`[]📶 优选节点`http://www.gstatic.com/generate_204`600,,150
+
+# 占位拦截
+custom_proxy_group=⛔ 节点不可用`select`.*占位死节点`DIRECT
+
+# 地区分组 (自动测速)
+custom_proxy_group=🇭🇰 香港节点`url-test`(港|🇭🇰|HK|hk|Hong Kong|HongKong|hongkong|MO|HKG|MFM)`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+custom_proxy_group=🇯🇵 日本节点`url-test`(日本|🇯🇵|JP|Japan|Tokyo|NRT|KIX|川日|东京|大阪|泉日|埼玉|沪日|深日)`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+custom_proxy_group=🇺🇲 美国节点`url-test`(美|🇺🇲|US|United States|LAX|SJC|SEA|ATL|BUF|DFW|EWR|IAD|MCI|MIA|ORD|PHX|PDX|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥)`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+custom_proxy_group=🇹🇼 台湾节点`url-test`(台|🇹🇼|TW|Taiwan|TPE|KHH|新北|彰化)`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+custom_proxy_group=🇸🇬 狮城节点`url-test`(新加坡|🇸🇬|坡|狮城|SG|Singapore|SIN)`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+custom_proxy_group=🇰🇷 韩国节点`url-test`(韩|🇰🇷|KR|Korea|KOR|Seoul|首尔|春川|ICN)`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+custom_proxy_group=🇩🇪 德国节点`url-test`(德国|🇩🇪|DE|Germany|FRA|Frankfurt|(?i)de\.)`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+
+# 特殊逻辑分组 - 已更名为 📶 优选节点，且改为 fallback 模式
+custom_proxy_group=📶 优选节点`fallback`ZT`[]⛔ 节点不可用`http://www.gstatic.com/generate_204`600,,150
+
+# 功能性分组
+custom_proxy_group=🤖 Ai平台`select`[]🚀 节点选择`[]🔯 故障转移`[]🇸🇬 狮城节点`[]🇭🇰 香港节点`[]🇹🇼 台湾节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🇩🇪 德国节点`[]📶 优选节点
+custom_proxy_group=📢 谷歌FCM`select`[]DIRECT`[]🚀 节点选择`[]🔯 故障转移`[]🇺🇲 美国节点`[]🇭🇰 香港节点`[]🇹🇼 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🇩🇪 德国节点`[]📶 优选节点
+custom_proxy_group=🎯 全球直连`select`[]DIRECT`[]🚀 节点选择
+custom_proxy_group=🛑 广告拦截`select`[]REJECT`[]DIRECT
+custom_proxy_group=🍃 应用净化`select`[]REJECT`[]DIRECT
+custom_proxy_group=🐟 自由翱翔`select`[]🚀 节点选择`[]🔯 故障转移`[]DIRECT`[]🇭🇰 香港节点`[]🇹🇼 台湾节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇺🇲 美国节点`[]🇰🇷 韩国节点`[]🇩🇪 德国节点`[]📶 优选节点
+custom_proxy_group=☑️ 手动切换`select`[]🇭🇰 香港节点`[]🇸🇬 狮城节点`[]🇯🇵 日本节点`[]🇰🇷 韩国节点`[]🇺🇲 美国节点`[]🇩🇪 德国节点`[]📶 优选节点`.*
+
+enable_rule_generator=true
+overwrite_original_rules=true
